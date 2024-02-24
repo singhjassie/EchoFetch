@@ -1,5 +1,5 @@
-name: purecycle
-description: "A new Flutter project."
+name: echofetch
+description: "A sustainable waste management solution offering at-home waste pickup, smart sorting, and responsible recycling."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -36,11 +36,17 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   google_fonts: ^6.1.0
-  flutter_stepindicator: ^0.1.7
+  easy_stepper: ^0.8.3
+  # flutter_stepindicator: ^0.1.7
 
 dev_dependencies:
+  flutter_launcher_icons: "^0.13.1"
   flutter_test:
     sdk: flutter
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  image_path: "assets/images/EchoFetch-logo.png"
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -62,10 +68,9 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/10181_cropped.jpg
     - assets/images/create_request.jpg
-    - assets/images/track_order.png
-    - assets/images/completed_requests.png
+    - assets/images/track-order.png
+    - assets/images/request-history.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:purecycle/chat_screen.dart';
-import 'package:purecycle/home_page.dart';
+import 'package:echofetch/screens/chat_screen.dart';
+import 'package:echofetch/screens/home_screen.dart';
 
-class PuRecycle extends StatefulWidget {
-  const PuRecycle({super.key});
+class EchoFetch extends StatefulWidget {
+  const EchoFetch({super.key});
 
   @override
-  State<PuRecycle> createState() {
-    return _PuRecycleState();
+  State<EchoFetch> createState() {
+    return _EchoFetchState();
   }
 }
 
-class _PuRecycleState extends State<PuRecycle> {
+class _EchoFetchState extends State<EchoFetch> {
   int currentScreenIndex = 0;
   Widget? currentScreen = const HomeScreen();
 
@@ -37,7 +37,7 @@ class _PuRecycleState extends State<PuRecycle> {
     return Scaffold(
       appBar: AppBar(
           title: Text(
-            'PuRecycle',
+            'EchoFetch',
             style: TextStyle(
               color: Theme.of(context).colorScheme.onPrimary,
               fontWeight: FontWeight.bold,

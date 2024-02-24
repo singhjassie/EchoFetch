@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "purecycle" "\0"
+            VALUE "FileDescription", "echofetch" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "purecycle" "\0"
+            VALUE "InternalName", "echofetch" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2024 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "purecycle.exe" "\0"
-            VALUE "ProductName", "purecycle" "\0"
+            VALUE "OriginalFilename", "echofetch.exe" "\0"
+            VALUE "ProductName", "echofetch" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
