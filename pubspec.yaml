@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_fonts: ^6.1.0
   easy_stepper: ^0.8.3
+  uuid: ^4.3.3
   # flutter_stepindicator: ^0.1.7
 
 dev_dependencies:

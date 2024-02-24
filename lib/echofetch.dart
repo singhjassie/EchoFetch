@@ -64,19 +64,22 @@ class _EchoFetchState extends State<EchoFetch> {
         selectedIndex: currentScreenIndex,
         destinations: const <Widget>[
           NavigationDestination(
-            selectedIcon: Icon(Icons.home),
+            selectedIcon: Icon(Icons.home, color: Colors.white,),
             icon: Icon(Icons.home_outlined),
             label: 'Home',
           ),
           NavigationDestination(
+            selectedIcon: Icon(Icons.price_change, color: Colors.white,),
             icon: Badge(child: Icon(Icons.price_change)),
             label: 'Pricing',
           ),
           NavigationDestination(
+            selectedIcon: Icon(Icons.celebration, color: Colors.white,),
             icon: Badge(child: Icon(Icons.celebration)),
             label: 'Rewards',
           ),
           NavigationDestination(
+            selectedIcon: Icon(Icons.comment_rounded, color: Colors.white,),
             icon: Badge(
               label: Text('2'),
               child: Icon(Icons.comment_rounded),

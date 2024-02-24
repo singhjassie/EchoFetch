@@ -1,3 +1,8 @@
+import 'dart:collection';
+
+import 'package:echofetch/widgets/overlay_steps/choose_location_step.dart';
+import 'package:echofetch/widgets/overlay_steps/confirm_details_step.dart';
+import 'package:echofetch/widgets/overlay_steps/select_items_step.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_stepper/easy_stepper.dart';
 
@@ -10,12 +15,53 @@ class NewRequestOverlay extends StatefulWidget {
 }
 
 class _NewRequestOverlayState extends State<NewRequestOverlay> {
-  int activeStep = 0;
-  String currentStep = 'Select Items';
+  int _activeStep = 0;
+  HashSet? _selectedItems;
+  String? _chosenLocationId;
+  SelectItemStep? _selectItemStep;
+  ChooseLocationStep? _chooseLocationStep;
+  ConfirmDetailsStep? _confirmDetailsStep;
+
+  @override
+  void initState() {
+    _selectItemStep = SelectItemStep(onNext: _saveSelectedItems);
+    _chooseLocationStep = ChooseLocationStep(onNext: _saveLocation);
+    _confirmDetailsStep = ConfirmDetailsStep();
+    super.initState();
+  }
+
+  void _saveSelectedItems(HashSet selectedItems){
+    setState(() {
+      _selectedItems = selectedItems;
+      _activeStep++;
+    });
+  }
+
+  void _saveLocation(String locationId){
+    setState(() {
+      _chosenLocationId = locationId;
+      _activeStep++;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    String? currentStepName;
+    Widget? currentStepWidget;
+    if(_activeStep==0){
+      currentStepName = 'Select Items';
+      currentStepWidget = _selectItemStep;
+    }
+    else if(_activeStep==1){
+      currentStepName = 'Choose Location';
+      currentStepWidget = _chooseLocationStep;
+    }
+    else if(_activeStep==2){
+      currentStepName = 'Confirm Details';
+      currentStepWidget = _confirmDetailsStep;
+    }
     ColorScheme colorScheme = Theme.of(context).colorScheme;
+
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(14.0),
@@ -25,7 +71,7 @@ class _NewRequestOverlayState extends State<NewRequestOverlay> {
               height: 25,
             ),
             Text(
-              currentStep,
+              currentStepName!,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 18,
@@ -36,15 +82,15 @@ class _NewRequestOverlayState extends State<NewRequestOverlay> {
               height: 10,
             ),
             EasyStepper(
-              activeStep: activeStep,
+              activeStep: _activeStep,
               stepShape: StepShape.circle,
-              stepBorderRadius: 50,
+              // stepBorderRadius: 4,
               borderThickness: 3,
               stepRadius: 24,
               finishedStepBorderColor: colorScheme.primary,
               finishedStepBackgroundColor: colorScheme.primary.withAlpha(150),
               showLoadingAnimation: true,
-              onStepReached: (index) => setState(() => activeStep = index),
+              onStepReached: (index) => setState(() => _activeStep = index),
               steps: [
                 EasyStep(
                   customStep: ClipRRect(
@@ -75,95 +121,10 @@ class _NewRequestOverlayState extends State<NewRequestOverlay> {
                 ),
               ],
             ),
-            Expanded(
-              child: GridView(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 3 / 2,
-                ),
-                children: const [
-                  Text('23'),
-                  Text('23'),
-                  Text('23'),
-                  Text('23'),
-                  Text('23'),
-                  Text('23'),
-                  Text('23'),
-                  Text('23'),
-                ],
-              ),
-            )
+            Expanded(child: currentStepWidget!),
           ],
         ),
       ),
     );
   }
 }
-
-class ItemTile extends StatelessWidget {
-  final int itemNo;
-
-  const ItemTile(
-    this.itemNo,
-  );
-
-  @override
-  Widget build(BuildContext context) {
-    final Color color = Colors.red;
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: ListTile(
-        tileColor: color.withOpacity(0.3),
-        onTap: () {},
-        leading: Container(
-          width: 50,
-          height: 30,
-          color: color.withOpacity(0.5),
-          child: Placeholder(
-            color: color,
-          ),
-        ),
-        title: Text(
-          'Product $itemNo',
-          key: Key('text_$itemNo'),
-        ),
-      ),
-    );
-  }
-}
-
-
-            // finishedStepBorderColor: colorScheme.primary,
-            // finishedStepTextColor: colorScheme.primary,
-            // finishedStepBackgroundColor: colorScheme.primary,
-            // activeStepIconColor: colorScheme.primary,
-
-          // FlutterStepIndicator(
-          //   onChange: (int index) {},
-          //   list: [1,2,3],
-          //   page: step,
-          //   height: 25,
-          //   positiveColor: Theme.of(context).colorScheme.primary,
-          //   progressColor: Theme.of(context).colorScheme.secondary,
-          //   // negativeColor: Theme.of(context).colorScheme.errorContainer,
-          // ),
-
-
-  // String currentStep = 'Select Items';
-  // Widget currentStepWidget = SelectItemStep();
-  // int step = 0;
-  // void goToNextStep(int step){
-  // if(step==0){
-  //   currentStep = 'Select Items';
-  //   currentStepWidget = SelectItemStep();
-  // }
-  // else if(step==1){
-  //   currentStep = 'Select Address';
-  //   currentStepWidget = SelectItemStep();
-  // }
-  // else{
-  //   currentStep = 'Summary';
-  //   currentStepWidget = SelectItemStep();
-  // }
-  // }
-  
