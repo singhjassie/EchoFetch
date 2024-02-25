@@ -11,12 +11,12 @@ class LocationWidget extends StatelessWidget {
       required this.onTap});
   final Location location;
   final bool isSelected;
-  final void Function(String) onTap;
+  final void Function(Location) onTap;
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        onTap(location.id);
+        onTap(location);
       },
       child: Stack(
         children: [
@@ -26,19 +26,25 @@ class LocationWidget extends StatelessWidget {
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
-                  gradient: LinearGradient(colors: [
-                Theme.of(context).colorScheme.secondaryContainer.withAlpha(255),
-                Theme.of(context).colorScheme.secondaryContainer.withAlpha(150),
-              ],
-              begin: Alignment.topLeft, end: Alignment.bottomRight),),
+                gradient: LinearGradient(colors: [
+                  Theme.of(context)
+                      .colorScheme
+                      .secondaryContainer
+                      .withAlpha(255),
+                  Theme.of(context)
+                      .colorScheme
+                      .secondaryContainer
+                      .withAlpha(150),
+                ], begin: Alignment.topLeft, end: Alignment.bottomRight),
+              ),
               // color: Theme.of(context).colorScheme.secondaryContainer,
               child: Padding(
                 padding: EdgeInsets.symmetric(vertical: 12, horizontal: 35),
                 child: Text(
-                  'H.No. ${location.houseNo.toString()},\n${location.city}, ${location.state}, ${location.country},\nPin Code: ${location.pinCode}',
+                  location.fullAddress,
                   textAlign: TextAlign.left,
                   style: GoogleFonts.lato(
-                    fontSize: 18,
+                    fontSize: 16,
                   ),
                 ),
               ),
@@ -48,7 +54,8 @@ class LocationWidget extends StatelessWidget {
             visible: isSelected,
             child: Align(
               alignment: Alignment.centerRight,
-              child: Padding(padding:EdgeInsets.all(12), child: Icon(Icons.check_box)),
+              child: Padding(
+                  padding: EdgeInsets.all(12), child: Icon(Icons.check_box)),
             ),
           )
         ],

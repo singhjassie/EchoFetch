@@ -1,26 +1,27 @@
 import 'dart:collection';
 
+import 'package:echofetch/model/waste_item.dart';
 import 'package:echofetch/widgets/waste_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:echofetch/data/waste_item_list.dart';
 
 class SelectItemStep extends StatefulWidget {
   SelectItemStep({super.key, required this.onNext});
-  final void Function(HashSet) onNext;
+  final void Function(HashSet<WasteItem>) onNext;
 
   @override
   State<SelectItemStep> createState() => _SelectItemStepState();
 }
 
 class _SelectItemStepState extends State<SelectItemStep> {
-  final HashSet _selectedItems = HashSet();
+  final HashSet<WasteItem> _selectedItems = HashSet();
 
-  void _selectMultipleItems(String id) {
+  void _selectMultipleItems(WasteItem item) {
     setState(() {
-      if (_selectedItems.contains(id)) {
-        _selectedItems.remove(id);
+      if (_selectedItems.contains(item)) {
+        _selectedItems.remove(item);
       } else {
-        _selectedItems.add(id);
+        _selectedItems.add(item);
       }
     },);
   }
@@ -43,7 +44,7 @@ class _SelectItemStepState extends State<SelectItemStep> {
                 (item) => WasteItemWidget(
                   wasteItem: item,
                   onTap: _selectMultipleItems,
-                  isSelected: _selectedItems.contains(item.id),
+                  isSelected: _selectedItems.contains(item),
                 ),
               )
             ],

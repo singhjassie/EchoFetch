@@ -1,10 +1,11 @@
-import 'package:echofetch/data/LocationsList.dart';
+import 'package:echofetch/data/locations_list.dart';
+import 'package:echofetch/model/location.dart';
 import 'package:echofetch/widgets/location_widget.dart';
 import 'package:flutter/material.dart';
 
 class ChooseLocationStep extends StatefulWidget {
   const ChooseLocationStep({super.key, required this.onNext});
-  final void Function(String) onNext;
+  final void Function(Location) onNext;
 
   @override
   State<StatefulWidget> createState() {
@@ -13,11 +14,11 @@ class ChooseLocationStep extends StatefulWidget {
 }
 
 class _ChooseLocationStepState extends State<ChooseLocationStep> {
-  String? _chosenLocationId;
+  Location? _chosenLocation;
 
-  void _chooseLocation(String id) {
+  void _chooseLocation(Location location) {
     setState(() {
-      _chosenLocationId = id;
+      _chosenLocation = location;
     });
   }
 
@@ -28,7 +29,7 @@ class _ChooseLocationStepState extends State<ChooseLocationStep> {
         ...locationsList.map(
           (location) => LocationWidget(
             location: location,
-            isSelected: _chosenLocationId == location.id,
+            isSelected: _chosenLocation == location,
             onTap: _chooseLocation,
           ),
         ),
@@ -45,7 +46,7 @@ class _ChooseLocationStepState extends State<ChooseLocationStep> {
             backgroundColor: Theme.of(context).colorScheme.primary,
           ),
           onPressed: () {
-            widget.onNext(_chosenLocationId!);
+            widget.onNext(_chosenLocation!);
           },
           child: Text(
             'Next',

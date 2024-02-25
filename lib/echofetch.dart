@@ -1,3 +1,5 @@
+import 'package:echofetch/screens/price_screen.dart';
+import 'package:echofetch/screens/reward_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:echofetch/screens/chat_screen.dart';
 import 'package:echofetch/screens/home_screen.dart';
@@ -21,17 +23,17 @@ class _EchoFetchState extends State<EchoFetch> {
         currentScreenIndex = index;
         if (index == 0) {
           currentScreen = const HomeScreen();
+        } else if (index == 1) {
+          currentScreen = const PricingScreen();
+        }else if (index == 2) {
+          currentScreen = const RewardScreen();
         } else if (index == 3) {
           currentScreen = const ChatScreen();
         }
       },
     );
   }
-
-  void _openNewRequestScreen(){
-    
-  }
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(

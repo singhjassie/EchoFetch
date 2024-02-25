@@ -11,13 +11,13 @@ class WasteItemWidget extends StatelessWidget {
   });
   final WasteItem wasteItem;
   final bool isSelected;
-  final void Function(String) onTap;
+  final void Function(WasteItem) onTap;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        onTap(wasteItem.id);
+        onTap(wasteItem);
       },
       child: Stack(
         children: [
@@ -34,13 +34,26 @@ class WasteItemWidget extends StatelessWidget {
               ),
             ),
             child: Center(
-              child: Text(
-                wasteItem.title,
-                style: GoogleFonts.lato(
-                  color: Theme.of(context).colorScheme.onPrimary,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    wasteItem.title,
+                    style: GoogleFonts.lato(
+                      color: Theme.of(context).colorScheme.onPrimary,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    '₹${wasteItem.price.toStringAsFixed(0)}/kg',
+                    style: GoogleFonts.lato(
+                      color: Theme.of(context).colorScheme.onPrimary,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
             ),
           ),

@@ -40,8 +40,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Card(
                     color: colorScheme.primary,
                     margin: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 8,
+                      horizontal: 12,
+                      vertical: 6,
                     ),
                     child: Column(
                       children: [
@@ -79,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: 8,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -91,7 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           Card(
                             color: colorScheme.primary,
                             margin: const EdgeInsets.symmetric(
-                              horizontal: 14,
+                              horizontal: 10,
                               vertical: 8,
                             ),
                             child: Column(

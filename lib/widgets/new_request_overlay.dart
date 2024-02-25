@@ -1,5 +1,8 @@
 import 'dart:collection';
 
+import 'package:echofetch/model/location.dart';
+import 'package:echofetch/model/request.dart';
+import 'package:echofetch/model/waste_item.dart';
 import 'package:echofetch/widgets/overlay_steps/choose_location_step.dart';
 import 'package:echofetch/widgets/overlay_steps/confirm_details_step.dart';
 import 'package:echofetch/widgets/overlay_steps/select_items_step.dart';
@@ -16,30 +19,22 @@ class NewRequestOverlay extends StatefulWidget {
 
 class _NewRequestOverlayState extends State<NewRequestOverlay> {
   int _activeStep = 0;
-  HashSet? _selectedItems;
-  String? _chosenLocationId;
-  SelectItemStep? _selectItemStep;
-  ChooseLocationStep? _chooseLocationStep;
-  ConfirmDetailsStep? _confirmDetailsStep;
+  HashSet<WasteItem> _selectedItems = HashSet();
+  Request? _requestDetails;
 
-  @override
-  void initState() {
-    _selectItemStep = SelectItemStep(onNext: _saveSelectedItems);
-    _chooseLocationStep = ChooseLocationStep(onNext: _saveLocation);
-    _confirmDetailsStep = ConfirmDetailsStep();
-    super.initState();
-  }
-
-  void _saveSelectedItems(HashSet selectedItems){
+  void _saveSelectedItems(HashSet<WasteItem> selectedItems) {
     setState(() {
       _selectedItems = selectedItems;
       _activeStep++;
     });
   }
 
-  void _saveLocation(String locationId){
+  void _saveLocation(Location location) {
     setState(() {
-      _chosenLocationId = locationId;
+      _requestDetails = Request(
+          selectedItems: _selectedItems,
+          requestDate: DateTime.now(),
+          chosenLocation: location.fullAddress);
       _activeStep++;
     });
   }
@@ -48,16 +43,26 @@ class _NewRequestOverlayState extends State<NewRequestOverlay> {
   Widget build(BuildContext context) {
     String? currentStepName;
     Widget? currentStepWidget;
-    if(_activeStep==0){
+    if (_activeStep == 0) {
       currentStepName = 'Select Items';
+      SelectItemStep? _selectItemStep =
+          SelectItemStep(onNext: _saveSelectedItems);
       currentStepWidget = _selectItemStep;
-    }
-    else if(_activeStep==1){
+    } else if (_activeStep == 1) {
       currentStepName = 'Choose Location';
+      ChooseLocationStep? _chooseLocationStep =
+          ChooseLocationStep(onNext: _saveLocation);
       currentStepWidget = _chooseLocationStep;
-    }
-    else if(_activeStep==2){
+    } else if (_activeStep == 2) {
       currentStepName = 'Confirm Details';
+      ConfirmDetailsStep? _confirmDetailsStep = ConfirmDetailsStep(
+        requestDetails: _requestDetails!,
+        previousStep: () {
+          setState(() {
+            _activeStep--;
+          });
+        },
+      );
       currentStepWidget = _confirmDetailsStep;
     }
     ColorScheme colorScheme = Theme.of(context).colorScheme;

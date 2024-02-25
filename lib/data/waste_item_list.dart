@@ -112,7 +112,7 @@ List<WasteItem> wasteItemList = [
   WasteItem(
     title: 'Others',
     color: Colors.grey,
-    price: 20,
+    price: 0,
   ),
 ];
 

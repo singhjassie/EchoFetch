@@ -10,6 +10,9 @@ class Location {
     required this.country,
     required this.pinCode,
   }): id = uuid.v4();
+  String get fullAddress {
+    return'H.No. ${houseNo.toString()},\n$city, $state, $country,\nPin Code: $pinCode';
+  }
   final String id;
   final int houseNo;
   final String city;
