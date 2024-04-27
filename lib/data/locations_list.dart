@@ -1,4 +1,4 @@
-import 'package:echofetch/model/location.dart';
+import 'package:echofetch/features/pickup/models/location.dart';
 
 List<Location> locationsList = [
   Location(

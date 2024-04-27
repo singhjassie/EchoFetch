@@ -1,4 +1,4 @@
-import 'package:echofetch/model/waste_item.dart';
+import 'package:echofetch/features/pickup/models/waste_item.dart';
 import 'package:flutter/material.dart';
 
 // Map<String, List<WasteItem>> wasteItemList = {
