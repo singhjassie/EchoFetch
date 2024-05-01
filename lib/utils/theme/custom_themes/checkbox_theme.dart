@@ -1,3 +1,4 @@
+import 'package:echofetch/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class TCheckboxTheme {
@@ -13,7 +14,7 @@ class TCheckboxTheme {
     }),
     fillColor: MaterialStateProperty.resolveWith((states) {
       if (states.contains(MaterialState.selected)) {
-        return const Color.fromARGB(255, 9, 77, 4);
+        return TColors.primaryLight;
       } else {
         return Colors.transparent;
       }
@@ -31,7 +32,7 @@ class TCheckboxTheme {
       }),
       fillColor: MaterialStateProperty.resolveWith((states) {
         if (states.contains(MaterialState.selected)) {
-          return const Color.fromARGB(255, 9, 77, 4);
+          return TColors.primaryDark;
         } else {
           return Colors.transparent;
         }

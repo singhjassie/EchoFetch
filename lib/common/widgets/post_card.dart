@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:echofetch/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class PostCard extends StatefulWidget {
@@ -34,23 +35,22 @@ class _PostCardState extends State<PostCard> {
         Padding(
           padding: const EdgeInsets.only(left: 10.0, right: 10.0, bottom: 20.0),
           child: Card(
-            color: Colors.white,
+            color: TColors.white,
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(32.0))),
-            shadowColor: Colors.black,
+                borderRadius: BorderRadius.all(Radius.circular(12.0))),
+            shadowColor: TColors.black,
             elevation: 40.0,
             child: Container(
-              height: 450,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(32)),
+                borderRadius: BorderRadius.all(Radius.circular(12)),
                 // image: DecorationImage(
                 //     image: NetworkImage(widget.postUrl), fit: BoxFit.cover),
               ),
               child: ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(32)),
+                borderRadius: BorderRadius.all(Radius.circular(12)),
                 child: CachedNetworkImage(
                   imageUrl: widget.postUrl,
-                  fit: BoxFit.cover,
+                  fit: BoxFit.fitWidth,
                   width: double.infinity,
                   height: 450,
                   placeholder: (context, url) => Center(
@@ -78,9 +78,8 @@ class _PostCardState extends State<PostCard> {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
             child: Container(
-              height: 450.0,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(32),
+                  borderRadius: BorderRadius.circular(12),
                   color: Colors.white,
                   gradient: LinearGradient(
                     begin: FractionalOffset.bottomCenter,

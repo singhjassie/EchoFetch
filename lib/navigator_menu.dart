@@ -6,16 +6,16 @@ import 'package:echofetch/features/chatbot/screens/chat_screen.dart';
 import 'package:echofetch/features/pickup/screens/pickup_screen.dart';
 import 'package:flutter/material.dart';
 
-class EchoFetchApp extends StatefulWidget {
-  const EchoFetchApp({super.key});
+class NavigatorMenu extends StatefulWidget {
+  const NavigatorMenu({super.key});
 
   @override
-  State<EchoFetchApp> createState() {
-    return _EchoFetchAppState();
+  State<NavigatorMenu> createState() {
+    return _NavigatorMenuState();
   }
 }
 
-class _EchoFetchAppState extends State<EchoFetchApp> {
+class _NavigatorMenuState extends State<NavigatorMenu> {
   int currentScreenIndex = 0;
   Widget? currentScreen;
   String currentScreenTitle = 'Home';
@@ -77,7 +77,8 @@ class _EchoFetchAppState extends State<EchoFetchApp> {
             builder: (context) => ChatbotScreen(),
           ));
         },
-        child: Icon(Icons.chat),
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        child: Icon(Icons.chat, color: Theme.of(context).colorScheme.onPrimary),
       ),
       bottomNavigationBar: NavigationBar(
         onDestinationSelected: (int index) {

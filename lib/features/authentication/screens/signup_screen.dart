@@ -1,6 +1,6 @@
-import 'package:echofetch/features/authentication/screens/login_screen.dart';
+import 'package:echofetch/features/authentication/screens/login/login_screen.dart';
 import 'package:echofetch/features/authentication/screens/verification_screen.dart';
-import 'package:echofetch/common/widgets/custom_button.dart';
+import 'package:echofetch/common/widgets/custom_buttons.dart';
 import 'package:echofetch/common/widgets/input_box.dart';
 import 'package:echofetch/utils/constants/image_strings.dart';
 import 'package:flutter/material.dart';
@@ -81,7 +81,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       // signup button
                       SizedBox(
                         width: double.infinity,
-                        child: CustomButton(title: 'Signup', onPressed: (){
+                        child: TElevatedButton(title: 'Signup', onPressed: (){
                           Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(builder: (context) =>  VerficationScreen()),
@@ -124,12 +124,12 @@ class _SignupScreenState extends State<SignupScreen> {
                         height: 30.0,
                       ),
                       // sign up social media logo
-                      CustomButton(title: 'Login with Google', 
+                      TOutlinedButton(title: 'Login with Google', 
                             onPressed:(){ }),
                       const SizedBox(
                         height: 25.0,
                       ),
-                      CustomButton(title: 'Login with Phone Number', 
+                      TOutlinedButton(title: 'Login with Phone Number', 
                             onPressed:(){ }),
                       const SizedBox(
                         height: 20.0,

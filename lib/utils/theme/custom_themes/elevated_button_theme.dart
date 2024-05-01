@@ -1,3 +1,4 @@
+import 'package:echofetch/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class TElevatedButtonTheme {
@@ -7,15 +8,15 @@ class TElevatedButtonTheme {
       ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
       elevation: 0,
-      foregroundColor: Colors.white,
-      backgroundColor: const Color.fromARGB(255, 9, 77, 4),
-      disabledForegroundColor: Colors.grey,
-      disabledBackgroundColor: Colors.grey,
-      side: const BorderSide(color: const Color.fromARGB(255, 9, 77, 4)),
-      padding: const EdgeInsets.symmetric(vertical: 18),
+      foregroundColor: TColors.white,
+      backgroundColor: TColors.primaryLight,
+      disabledForegroundColor: TColors.grey,
+      disabledBackgroundColor: TColors.grey,
+      side: const BorderSide(color: TColors.primaryLight),
+      padding: const EdgeInsets.symmetric(vertical: 0),
       textStyle: const TextStyle(
         fontSize: 16,
-        color: Colors.white,
+        color: TColors.white,
         fontWeight: FontWeight.w600,
       ),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
@@ -23,20 +24,20 @@ class TElevatedButtonTheme {
   );
   static ElevatedButtonThemeData darkElevatedButtonTheme =
       ElevatedButtonThemeData(
-        style: ElevatedButton.styleFrom(
+      style: ElevatedButton.styleFrom(
       elevation: 0,
-      foregroundColor: Colors.black,
-      backgroundColor: const Color.fromARGB(255, 9, 77, 4),
-      disabledForegroundColor: Colors.grey,
-      disabledBackgroundColor: Colors.grey,
-      side: const BorderSide(color: const Color.fromARGB(255, 9, 77, 4)),
-      padding: const EdgeInsets.symmetric(vertical: 18),
+      foregroundColor: TColors.black,
+      backgroundColor: TColors.primaryDark,
+      disabledForegroundColor: TColors.grey,
+      disabledBackgroundColor: TColors.grey,
+      side: const BorderSide(color: TColors.primaryDark),
+      padding: const EdgeInsets.symmetric(vertical: 0),
       textStyle: const TextStyle(
         fontSize: 16,
-        color: Colors.black,
+        color: TColors.black,
         fontWeight: FontWeight.w600,
       ),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
     ),
-      );
+  );
 }

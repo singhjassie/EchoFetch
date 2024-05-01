@@ -9,12 +9,13 @@ class TColors {
     brightness: Brightness.light,
   );
   static ColorScheme darkColorScheme = ColorScheme.fromSeed(
-    seedColor: Color(0xFF094D04),
+    seedColor: Color(0xFF48DB1B),
     brightness: Brightness.dark,
   );
 
 // App Basic Colors
-  static const Color primary = Color(0xFF094D04);
+  static const Color primaryLight = Color(0xFF094D04);
+  static const Color primaryDark = Color(0xFF48DB1B);
   static const Color secondary = Color(0xFFCEDBCD);
   static const Color accent = Color(0xFF);
 

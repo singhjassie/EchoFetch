@@ -1,8 +1,8 @@
-import 'package:echofetch/echofetch_app.dart';
 import 'package:echofetch/features/authentication/screens/forget_password_screen.dart';
 import 'package:echofetch/features/authentication/screens/signup_screen.dart';
-import 'package:echofetch/common/widgets/custom_button.dart';
+import 'package:echofetch/common/widgets/custom_buttons.dart';
 import 'package:echofetch/common/widgets/input_box.dart';
+import 'package:echofetch/navigator_menu.dart';
 import 'package:echofetch/utils/constants/image_strings.dart';
 import 'package:flutter/material.dart';
 
@@ -21,18 +21,22 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: Column(
         children: [
-          SizedBox(height: 50,),
+          SizedBox(
+            height: 50,
+          ),
           Expanded(
             flex: 2,
-            child: Image.asset(TImages.loginImg,
-                      fit: BoxFit.cover,
-                      width: double.infinity,),
+            child: Image.asset(
+              TImages.loginImg,
+              fit: BoxFit.cover,
+              width: double.infinity,
+            ),
           ),
           Expanded(
             flex: 3,
             child: Container(
               padding: const EdgeInsets.fromLTRB(25.0, 50.0, 25.0, 20.0),
-              decoration:  BoxDecoration(
+              decoration: BoxDecoration(
                 color: Theme.of(context).colorScheme.secondary.withOpacity(0.1),
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(40.0),
@@ -50,17 +54,21 @@ class _LoginScreenState extends State<LoginScreen> {
                         style: TextStyle(
                           fontSize: 30.0,
                           fontWeight: FontWeight.w900,
-                          color:Theme.of(context).colorScheme.primary,
+                          color: Theme.of(context).colorScheme.primary,
                         ),
                       ),
-                      const SizedBox(
-                        height: 40.0,
-                      ),
-                      InputBox(hintText: 'Email', prefixIcon: Icons.mail, isPassword: false),
+                      const SizedBox(height: 40.0),
+                      InputBox(
+                          hintText: 'Email',
+                          prefixIcon: Icons.mail,
+                          isPassword: false),
                       const SizedBox(
                         height: 15.0,
                       ),
-                      InputBox(hintText: 'Password', prefixIcon: Icons.password, isPassword: true),
+                      InputBox(
+                          hintText: 'Password',
+                          prefixIcon: Icons.password,
+                          isPassword: true),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
@@ -73,12 +81,13 @@ class _LoginScreenState extends State<LoginScreen> {
                                     rememberPassword = value!;
                                   });
                                 },
-                                activeColor:Theme.of(context).colorScheme.primary,
+                                activeColor:
+                                    Theme.of(context).colorScheme.primary,
                               ),
                               Text(
                                 'Remember me',
                                 style: TextStyle(
-                                  color:Theme.of(context).colorScheme.primary,
+                                  color: Theme.of(context).colorScheme.primary,
                                 ),
                               ),
                             ],
@@ -86,14 +95,16 @@ class _LoginScreenState extends State<LoginScreen> {
                           Spacer(),
                           GestureDetector(
                             onTap: () => Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(builder: (context) => const  ForgetPasswordScreen()),
-                              ),
-                            child:Text(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const ForgetPasswordScreen()),
+                            ),
+                            child: Text(
                               'Forget password?',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                               color:Theme.of(context).colorScheme.primary,
+                                color: Theme.of(context).colorScheme.primary,
                               ),
                             ),
                           ),
@@ -103,27 +114,32 @@ class _LoginScreenState extends State<LoginScreen> {
                         height: 25.0,
                       ),
                       SizedBox(
-                        width: double.infinity,
-                        child:  CustomButton(title: 'Login', onPressed: () {
-                            if (_formSignInKey.currentState!.validate() &&
-                                rememberPassword) {
-                              Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(builder: (context) => const  EchoFetchApp()),
-                              );
-                            } else if (!rememberPassword) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                    content: Text(
-                                        'Please agree to the processing of personal data')),
-                              );
-                            }
-                          },)
-                        ),
+                          width: double.infinity,
+                          child: TElevatedButton(
+                            title: 'Login',
+                            onPressed: () {
+                              if (_formSignInKey.currentState!.validate() &&
+                                  rememberPassword) {
+                                    Navigator.of(context).pop();
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const NavigatorMenu()),
+                                );
+                              } else if (!rememberPassword) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                      content: Text(
+                                          'Please agree to the processing of personal data')),
+                                );
+                              }
+                            },
+                          )),
                       const SizedBox(
                         height: 15.0,
                       ),
-                       // don't have an account
+                      // don't have an account
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -142,7 +158,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 ),
                               );
                             },
-                            child:const  Text(
+                            child: const Text(
                               'Sign up',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
@@ -171,8 +187,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             child: Text(
                               'Sign up with',
                               style: TextStyle(
-                                // color: Colors.black45,
-                              ),
+                                  // color: Colors.black45,
+                                  ),
                             ),
                           ),
                           Expanded(
@@ -186,13 +202,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       const SizedBox(
                         height: 25.0,
                       ),
-                      CustomButton(title: 'Login with Google', 
-                            onPressed:(){ }),
+                      TOutlinedButton(
+                          title: 'Login with Google', onPressed: () {}),
                       const SizedBox(
                         height: 25.0,
                       ),
-                      CustomButton(title: 'Login with Phone Number', 
-                            onPressed:(){ }),
+                      TOutlinedButton(
+                          title: 'Login with Phone Number', onPressed: () {}),
                       const SizedBox(
                         height: 20.0,
                       ),

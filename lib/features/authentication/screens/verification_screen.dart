@@ -1,6 +1,6 @@
 import 'package:echofetch/features/authentication/screens/forget_password_screen.dart';
 import 'package:echofetch/features/authentication/screens/new_password_screen.dart';
-import 'package:echofetch/common/widgets/custom_button.dart';
+import 'package:echofetch/common/widgets/custom_buttons.dart';
 import 'package:echofetch/utils/constants/image_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -188,7 +188,7 @@ class _VerficationScreenState extends State<VerficationScreen> {
                       // signup button
                       SizedBox(
                         width: double.infinity,
-                        child: CustomButton(title: 'Send', onPressed: (){
+                        child: TElevatedButton(title: 'Send', onPressed: (){
                           Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(builder: (context) =>  NewPasswordScreen()),

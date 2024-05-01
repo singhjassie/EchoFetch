@@ -1,5 +1,5 @@
-import 'package:echofetch/features/authentication/screens/login_screen.dart';
-import 'package:echofetch/common/widgets/custom_button.dart';
+import 'package:echofetch/features/authentication/screens/login/login_screen.dart';
+import 'package:echofetch/common/widgets/custom_buttons.dart';
 import 'package:echofetch/common/widgets/input_box.dart';
 import 'package:echofetch/utils/constants/image_strings.dart';
 import 'package:flutter/material.dart';
@@ -72,7 +72,7 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                       ),
                       SizedBox(
                         width: double.infinity,
-                        child:  CustomButton(title: 'Reset Password', onPressed: () {
+                        child:  TElevatedButton(title: 'Reset Password', onPressed: () {
                               Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(builder: (context) => const  LoginScreen()),

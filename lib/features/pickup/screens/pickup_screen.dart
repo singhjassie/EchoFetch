@@ -31,7 +31,7 @@ class _PickupScreenState extends State<PickupScreen> {
                 GestureDetector(
                   onTap: _navigateToNewRequestScreen,
                   child: Card(
-                    color: colorScheme.primaryContainer,
+                    color: colorScheme.primary,
                     margin: const EdgeInsets.symmetric(
                       horizontal: 12,
                       vertical: 6,
@@ -52,15 +52,16 @@ class _PickupScreenState extends State<PickupScreen> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              const Icon(
+                              Icon(
                                 Icons.add,
+                                color: Theme.of(context).colorScheme.onPrimary,
                               ),
                               const SizedBox(
                                 width: 8,
                               ),
                               Text(
                                 'Create Request',
-                                style: GoogleFonts.lato( fontSize: 16),
+                                style: GoogleFonts.lato().copyWith(fontSize: 16, color: Theme.of(context).colorScheme.onPrimary),
                               ),
                             ],
                           ),
@@ -80,7 +81,7 @@ class _PickupScreenState extends State<PickupScreen> {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           Card(
-                            color: colorScheme.primaryContainer,
+                            color: colorScheme.primary,
                             margin: const EdgeInsets.symmetric(
                               horizontal: 10,
                               vertical: 8,
@@ -114,7 +115,7 @@ class _PickupScreenState extends State<PickupScreen> {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           Card(
-                            color: colorScheme.primaryContainer,
+                            color: colorScheme.primary,
                             margin: const EdgeInsets.symmetric(
                               horizontal: 14,
                               vertical: 8,

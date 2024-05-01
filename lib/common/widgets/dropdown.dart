@@ -24,12 +24,12 @@ class _CustomDropdownMenuState extends State<CustomDropdownMenu> {
       ),
       value: _value,
       items: [
-        DropdownMenuItem(child: Text('Gift Card'),value: '-1',),
-        DropdownMenuItem(child: Text('Discount Coupon'),value: '1',),
-        DropdownMenuItem(child: Text('Loyalty Points'),value: '2',),
-        DropdownMenuItem(child: Text('Buy One Get One (BOGO)'),value: '3',),
-        DropdownMenuItem(child: Text('Free Shipping'),value: '4',),
-        DropdownMenuItem(child: Text('Cashback'),value: '5',),
+        DropdownMenuItem(child: Text('Gift Card', style: TextStyle(color: Theme.of(context).colorScheme.onBackground),),value: '-1',),
+        DropdownMenuItem(child: Text('Discount Coupon', style: TextStyle(color: Theme.of(context).colorScheme.onBackground),),value: '1',),
+        DropdownMenuItem(child: Text('Loyalty Points', style: TextStyle(color: Theme.of(context).colorScheme.onBackground),),value: '2',),
+        DropdownMenuItem(child: Text('Buy One Get One (BOGO)', style: TextStyle(color: Theme.of(context).colorScheme.onBackground),),value: '3',),
+        DropdownMenuItem(child: Text('Free Shipping', style: TextStyle(color: Theme.of(context).colorScheme.onBackground)),value: '4',),
+        DropdownMenuItem(child: Text('Cashback', style: TextStyle(color: Theme.of(context).colorScheme.onBackground),),value: '5',),
       ], onChanged: (v){});
   }
 }

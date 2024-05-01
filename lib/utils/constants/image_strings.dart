@@ -1,9 +1,8 @@
 class TImages {
   // Logos
   static const String appLogo = "assets/logos/echofetch-logo.png";
+  static const String appLogoDark = "assets/logos/echofetch-logo-dark.png";
 
-  // Splash
-  static const String splashScreenImg = "assets/images/splash/splash-screen.png";
   // Onboarding
   static const String onboardingImg1 = "assets/images/onboarding/people.png";
   static const String onboardingImg2 = "assets/images/onboarding/pickup-truck.png";
@@ -20,5 +19,7 @@ class TImages {
   static const String trackOrderImg = "assets/images/pickup/track-order.png";
   // Rewards
   static const String amazonCouponImg = "assets/images/rewards/amazon-coupon.png";
-
+  // Shop
+  static const String wasteBinImg = "assets/images/shop/waste-bin.png";
+  static const String recycleImg= "assets/images/shop/recycle.png";
 }

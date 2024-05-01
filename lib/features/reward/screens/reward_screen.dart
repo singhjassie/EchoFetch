@@ -8,8 +8,7 @@ class RewardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:
-          const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(16),
       child: Column(
         children: [
           Row(
@@ -17,7 +16,11 @@ class RewardScreen extends StatelessWidget {
             children: [
               Text(
                 'Available Reward Points: ',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w400,
+                  color: Theme.of(context).colorScheme.onBackground,
+                ),
               ),
               Container(
                 decoration: BoxDecoration(

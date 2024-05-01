@@ -17,6 +17,8 @@ dependencies:
   url_launcher: ^6.2.6
   uuid: ^4.3.3
   shortid: ^0.1.2
+  flutter_native_splash: ^2.4.0
+  smooth_page_indicator: ^1.1.0
 
   # Icons
   iconsax: ^0.0.8
@@ -46,7 +48,7 @@ dev_dependencies:
 #----------App Launcher icon----------#
 flutter_launcher_icons:
   android: "launcher_icon"
-  image_path: "assets/logos/echofetch-logo.png"
+  image_path: "assets/icons/launcher-icon.png"
   flutter_lints: ^2.0.0
 
 flutter:
@@ -54,11 +56,11 @@ flutter:
 
 #----------Local Assets----------#
   assets:
-    - assets/images/splash/
     - assets/images/onboarding/
     - assets/images/authentication/
     - assets/images/pickup/
     - assets/images/rewards/
+    - assets/images/shop/
     - assets/logos/
     - assets/icons/
 

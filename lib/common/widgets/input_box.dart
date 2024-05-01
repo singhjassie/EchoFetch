@@ -1,3 +1,4 @@
+import 'package:echofetch/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 class InputBox extends StatefulWidget {
@@ -6,12 +7,10 @@ class InputBox extends StatefulWidget {
     required this.hintText,
     required this.prefixIcon,
     required this.isPassword,
-   
   });
   final IconData prefixIcon;
   final String hintText;
   final bool isPassword;
-
 
   @override
   State<InputBox> createState() => _InputBoxState();
@@ -22,16 +21,16 @@ class _InputBoxState extends State<InputBox> {
 
   @override
   Widget build(BuildContext context) {
-    ColorScheme colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = Theme.of(context).colorScheme;
     return TextFormField(
       obscureText: !_isPasswordVisible && widget.isPassword,
       obscuringCharacter: '*',
       decoration: InputDecoration(
-          filled: true,
-          fillColor: colorScheme.secondaryContainer,
           label: Text(widget.hintText),
           hintText: widget.hintText,
-          prefixIcon: Icon(widget.prefixIcon),
+          prefixIcon: Icon(
+            widget.prefixIcon,
+          ),
           suffixIcon: widget.isPassword
               ? IconButton(
                   icon: Icon(
@@ -48,6 +47,7 @@ class _InputBoxState extends State<InputBox> {
               : null,
           contentPadding: const EdgeInsets.symmetric(
             horizontal: 16,
+            vertical: 6,
           ),
           hintStyle: TextStyle(
             color: colorScheme.onSecondaryContainer.withOpacity(.7),
@@ -56,15 +56,14 @@ class _InputBoxState extends State<InputBox> {
             borderSide: BorderSide(
               color: colorScheme.primary,
             ),
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(TSizes.borderRadiusLg),
           ),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
               color: colorScheme.primary,
             ),
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(TSizes.borderRadiusLg),
           )),
     );
   }
 }
-
