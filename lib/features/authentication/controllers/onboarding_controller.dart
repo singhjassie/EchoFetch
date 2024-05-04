@@ -1,4 +1,5 @@
-import 'package:echofetch/features/shared/screens/welcome_screen.dart';
+
+import 'package:echofetch/features/shared/screens/select_laguage_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -23,7 +24,7 @@ class OnBoardingController extends GetxController {
   // Update the current screen on next button click
   void nextPage() {
     if (currentPageIndex == 2) {
-      Get.to(WelcomeScreen());
+      Get.to(SelectLanguageScreen());
     } else {
       int index = currentPageIndex.value + 1;
       currentPageIndex.value = index;
@@ -32,6 +33,6 @@ class OnBoardingController extends GetxController {
   }
 
   void skipPage() {
-    Get.to(WelcomeScreen());
+    Get.to(SelectLanguageScreen());
   }
 }

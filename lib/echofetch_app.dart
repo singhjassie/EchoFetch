@@ -1,23 +1,21 @@
+import 'package:echofetch/features/community/screens/community_screen.dart';
+import 'package:echofetch/features/reward/screens/reward_screen.dart';
+import 'package:echofetch/features/shared/screens/home_screen.dart';
+import 'package:echofetch/features/shop/screens/shop_screen.dart';
 import 'package:echofetch/features/chatbot/screens/chat_screen.dart';
 import 'package:echofetch/features/pickup/screens/pickup_screen.dart';
-import 'package:echofetch/features/reward/screens/reward_screen.dart';
-import 'package:echofetch/features/shop/screens/shop_screen.dart';
-import 'package:echofetch/screens/community_screen.dart';
-import 'package:echofetch/screens/homscreen.dart';
 import 'package:flutter/material.dart';
 
-
-
-class NavigatorMenu extends StatefulWidget {
-  const NavigatorMenu({super.key});
+class EchoFetchApp extends StatefulWidget {
+  const EchoFetchApp({super.key});
 
   @override
-  State<NavigatorMenu> createState() {
-    return _NavigatorMenuState();
+  State<EchoFetchApp> createState() {
+    return _EchoFetchAppState();
   }
 }
 
-class _NavigatorMenuState extends State<NavigatorMenu> {
+class _EchoFetchAppState extends State<EchoFetchApp> {
   int currentScreenIndex = 0;
   Widget? currentScreen;
   String currentScreenTitle = 'Home';
@@ -28,7 +26,7 @@ class _NavigatorMenuState extends State<NavigatorMenu> {
         currentScreenIndex = index;
         switch (index) {
           case 0:
-            currentScreen = HomeScreen();
+            currentScreen = const HomeScreen();
             currentScreenTitle = 'Home';
             break;
           case 1:
@@ -40,7 +38,7 @@ class _NavigatorMenuState extends State<NavigatorMenu> {
             currentScreenTitle = 'Shop';
             break;
           case 3:
-            currentScreen = CommunityScreen();
+            currentScreen = const CommunityScreen();
             currentScreenTitle = 'Community';
             break;
           case 4:
@@ -79,12 +77,9 @@ class _NavigatorMenuState extends State<NavigatorMenu> {
             builder: (context) => ChatbotScreen(),
           ));
         },
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        child: Icon(Icons.chat, color: Theme.of(context).colorScheme.onPrimary),
+        child: Icon(Icons.chat),
       ),
       bottomNavigationBar: NavigationBar(
-        elevation: 12,
-        
         onDestinationSelected: (int index) {
           _changeScreen(index);
         },
