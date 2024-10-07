@@ -27,7 +27,7 @@ Recycling Platform: Facilitates collaboration with recycling firms for the creat
 Clone the repository to your local machine using the following command:
 
 ```sh
-git clone https://github.com/singhjassie/EchoFetch-ProducerApp.git
+git clone https://github.com/singhjassie/EchoFetch.git
 ```
 
 ## Navigate to the project directory:
